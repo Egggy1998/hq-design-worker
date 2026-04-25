@@ -1,4 +1,4 @@
-name = "3d-vietnam-webhook"
+name = "3d-vietnam-worker"
 main = "index.ts"
 compatibility_date = "2024-01-01"
 
