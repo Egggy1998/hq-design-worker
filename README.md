@@ -8,42 +8,24 @@ Worker nhận request từ OpenClaw và forward đến n8n webhook, đảm bảo
 
 ## 🚀 Deploy từ GitHub
 
-### Cách 1: Cloudflare Dashboard (khuyến nghị)
-
 1. Vào https://dash.cloudflare.com → Workers & Pages
 2. "Create a Worker" → "Deploy from GitHub"
 3. Connect repo: `Egggy1998/hq-design-worker`
 4. Done!
 
-### Cách 2: Wrangler CLI
-
-```bash
-npm install -g wrangler
-wrangler login
-git clone https://github.com/Egggy1998/hq-design-worker.git
-cd hq-design-worker
-wrangler deploy
-```
-
-## 🔧 Cấu hình Environment Variables
-
-Trên Cloudflare Dashboard → Workers & Pages → `hq-design-worker` → Settings → Variables:
+## 🔧 Cấu hình (set trên Cloudflare Dashboard)
 
 | Variable | Value |
 |----------|-------|
-| `N8N_WEBHOOK_URL` | URL instance n8n của bạn |
-| `N8N_WEBHOOK_ID` | Webhook ID từ n8n |
-| `BASEROW_TABLE_ID` | Table ID từ Baserow |
+| `N8N_WEBHOOK_URL` | URL n8n instance của bạn |
+| `N8N_WEBHOOK_ID` | Webhook ID từ n8n workflow |
+| `BASEROW_TABLE_ID` | Baserow table ID |
 
-## 🔐 Set Secrets
+## 🔐 Secrets (set riêng - KHÔNG push lên git)
 
 ```bash
-# Set Baserow token
 wrangler secret put BASEROW_TOKEN
-# Nhập token của bạn
-
-# Set n8n URL (nếu cần)
-wrangler secret put N8N_WEBHOOK_URL
+# Nhập: Baserow API token của bạn
 ```
 
 ## 📡 API
@@ -59,15 +41,6 @@ Content-Type: application/json
   "product_image_url": "https://...",
   "product_name": "Product Name"
 }
-```
-
-## 📁 Cấu trúc
-
-```
-hq-design-worker/
-├── index.ts        # Worker code
-├── wrangler.toml   # Config
-└── README.md
 ```
 
 ## 📚 Tham khảo
