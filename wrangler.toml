@@ -1,9 +1,11 @@
-name = "3d-vietnam-webhook"
+name = "3d-vietnam-worker"
 main = "index.ts"
 compatibility_date = "2024-01-01"
 
 [vars]
 N8N_WEBHOOK_URL = "https://jqqpar.ezn8n.com"
 N8N_WEBHOOK_ID = "c662501d-1d03-48c3-9bc2-4ad0e8e2b2a2"
-BASEROW_TOKEN = "YOUR_BASEROW_TOKEN"
 BASEROW_TABLE_ID = "916632"
+
+# Secrets - set via: wrangler secret put BASEROW_TOKEN
+# wrangler secret put BASEROW_TOKEN
