@@ -9,4 +9,3 @@ BASEROW_TABLE_ID = "YOUR_TABLE_ID"
 
 # Secrets - set via Cloudflare Dashboard or wrangler:
 # wrangler secret put BASEROW_TOKEN
-# wrangler secret put N8N_WEBHOOK_URL
